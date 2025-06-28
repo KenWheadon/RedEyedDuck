@@ -214,8 +214,8 @@ const Game = {
       UTILS.playAudio(CONFIG.AUDIO.RAGE_INCREASE);
     }
 
-    // Play duck response sound
-    UTILS.playAudio(CONFIG.AUDIO.DUCK_RESPONSE);
+    // Play duck response sound (randomly selected)
+    UTILS.playRandomDuckSound();
 
     // Update duck image immediately
     const duckImage = document.getElementById("duck-image");

@@ -20,6 +20,7 @@ const CONFIG = {
   IMAGES: {
     DUCK_PREFIX: "images/duck-rage-",
     DUCK_EXTENSION: ".png",
+    BACKGROUND: "images/airplane-cabin.jpg",
   },
 
   AUDIO: {
@@ -29,7 +30,7 @@ const CONFIG = {
     CHOICE_SOUND: "choice-sound",
     CHOICE_HOVER: "choice-hover",
     AIRPLANE_DING: "airplane-ding",
-    DUCK_RESPONSE: "duck-response-sound",
+    DUCK_RESPONSE: ["quack1", "quack2", "quack3"], // Array of duck response sounds
     TIMER_TICK: "timer-tick",
     RAGE_INCREASE: "rage-increase",
     DEATH_SOUND: "death-sound",
@@ -142,6 +143,14 @@ const UTILS = {
       audio.currentTime = 0;
       audio.play().catch((e) => console.log("Audio play failed:", e));
     }
+  },
+
+  // Play random duck response sound
+  playRandomDuckSound: (volume = CONFIG.SFX_VOLUME) => {
+    const duckSounds = CONFIG.AUDIO.DUCK_RESPONSE;
+    const randomIndex = Math.floor(Math.random() * duckSounds.length);
+    const selectedSound = duckSounds[randomIndex];
+    UTILS.playAudio(selectedSound, volume);
   },
 
   // Clamp rage between min and max

@@ -193,7 +193,7 @@ body::before {
 .achievement-name {
   font-size: 1.2em;
   font-weight: bold;
-  color: #fff;
+  color: #000;
   margin-bottom: 5px;
 }
 
