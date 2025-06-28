@@ -26,6 +26,10 @@ const StartScreen = {
     if (startButton) {
       startButton.addEventListener("click", () => {
         UTILS.playAudio(CONFIG.AUDIO.CHOICE_SOUND);
+
+        // Play airplane ding sound
+        UTILS.playAudio(CONFIG.AUDIO.AIRPLANE_DING);
+
         Game.startGame();
       });
     }
@@ -36,13 +40,7 @@ const StartScreen = {
     container.innerHTML = StartScreen.render();
     StartScreen.attachEventListeners();
 
-    // Start background music
-    const bgMusic = document.getElementById(CONFIG.AUDIO.BACKGROUND_MUSIC);
-    if (bgMusic) {
-      bgMusic.volume = CONFIG.MUSIC_VOLUME;
-      bgMusic
-        .play()
-        .catch((e) => console.log("Background music failed to start:", e));
-    }
+    // Start happy background music
+    UTILS.switchBackgroundMusic(0);
   },
 };

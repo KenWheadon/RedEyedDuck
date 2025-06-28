@@ -10,6 +10,7 @@ const Game = {
     lastResponse: "",
     gameHistory: [],
     timerInterval: null,
+    currentMusicTrack: null,
   },
 
   // Initialize the game
@@ -35,6 +36,7 @@ const Game = {
     Game.state.timer = CONFIG.CHOICE_TIMER;
     Game.state.showDuckResponse = false;
     Game.state.gameHistory = [];
+    Game.state.currentMusicTrack = UTILS.switchBackgroundMusic(0);
 
     Game.renderGameScreen();
     Game.startTimer();
@@ -56,6 +58,7 @@ const Game = {
       lastResponse: "",
       gameHistory: [],
       timerInterval: null,
+      currentMusicTrack: null,
     };
   },
 
@@ -136,6 +139,11 @@ const Game = {
         const choiceIndex = parseInt(e.target.dataset.choice);
         Game.handleChoice(choiceIndex);
       });
+
+      // Add hover sound effect
+      button.addEventListener("mouseenter", () => {
+        UTILS.playAudio(CONFIG.AUDIO.CHOICE_HOVER, 0.4);
+      });
     });
   },
 
@@ -160,6 +168,12 @@ const Game = {
     Game.state.maxRageReached = newMaxRage;
     Game.state.lastResponse = selectedChoice.response;
     Game.state.showDuckResponse = true;
+
+    // Switch background music based on new rage level
+    Game.state.currentMusicTrack = UTILS.switchBackgroundMusic(
+      newRage,
+      Game.state.currentMusicTrack
+    );
 
     // Add to history
     const historyEntry = {
@@ -195,7 +209,11 @@ const Game = {
     // Check for immediate death (rage 12)
     if (newRage >= CONFIG.DEATH_RAGE) {
       setTimeout(() => {
-        EndingScreen.init(Game.state);
+        if (typeof EndingScreen !== "undefined" && EndingScreen.init) {
+          EndingScreen.init(Game.state);
+        } else {
+          console.error("EndingScreen not available");
+        }
       }, CONFIG.RESPONSE_DISPLAY_TIME);
       return;
     }
@@ -203,7 +221,11 @@ const Game = {
     // Continue to next round or end game
     setTimeout(() => {
       if (Game.state.currentRound + 1 >= CONFIG.TOTAL_ROUNDS) {
-        EndingScreen.init(Game.state);
+        if (typeof EndingScreen !== "undefined" && EndingScreen.init) {
+          EndingScreen.init(Game.state);
+        } else {
+          console.error("EndingScreen not available");
+        }
       } else {
         Game.state.currentRound++;
         Game.state.timer = CONFIG.CHOICE_TIMER;
@@ -252,12 +274,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Handle page visibility changes to pause/resume music
 document.addEventListener("visibilitychange", () => {
-  const bgMusic = document.getElementById(CONFIG.AUDIO.BACKGROUND_MUSIC);
-  if (bgMusic) {
-    if (document.hidden) {
-      bgMusic.pause();
-    } else {
-      bgMusic.play().catch((e) => console.log("Music resume failed:", e));
+  const allMusicTracks = [
+    CONFIG.AUDIO.BACKGROUND_MUSIC_HAPPY,
+    CONFIG.AUDIO.BACKGROUND_MUSIC_UPSET,
+    CONFIG.AUDIO.BACKGROUND_MUSIC_DEATH,
+  ];
+
+  if (document.hidden) {
+    // Pause all music tracks
+    allMusicTracks.forEach((trackId) => {
+      const audio = document.getElementById(trackId);
+      if (audio && !audio.paused) {
+        audio.pause();
+      }
+    });
+  } else {
+    // Resume the current track
+    if (Game.state && Game.state.currentMusicTrack) {
+      const currentAudio = document.getElementById(
+        Game.state.currentMusicTrack
+      );
+      if (currentAudio) {
+        currentAudio
+          .play()
+          .catch((e) => console.log("Music resume failed:", e));
+      }
     }
   }
 });
