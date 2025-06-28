@@ -17,11 +17,17 @@ const Game = {
   init: async () => {
     console.log("Initializing Red Eye Duck game...");
 
+    // Initialize achievement system
+    AchievementManager.init();
+
     // Load game data
     const dataLoaded = await loadGameData();
     if (!dataLoaded) {
       console.warn("Using fallback game data");
     }
+
+    // Initialize achievement drawer
+    AchievementDrawer.init();
 
     // Initialize start screen
     StartScreen.init();
@@ -37,6 +43,9 @@ const Game = {
     Game.state.showDuckResponse = false;
     Game.state.gameHistory = [];
     Game.state.currentMusicTrack = UTILS.switchBackgroundMusic(0);
+
+    // Track game started achievement
+    AchievementManager.trackGameStarted();
 
     Game.renderGameScreen();
     Game.startTimer();
@@ -159,6 +168,14 @@ const Game = {
     // Play choice sound
     UTILS.playAudio(CONFIG.AUDIO.CHOICE_SOUND);
 
+    // Track silent responses for achievements
+    if (choiceIndex === 3) {
+      // Silent choice is always index 3
+      AchievementManager.trackSilentResponse();
+    } else {
+      AchievementManager.resetSilentStreak();
+    }
+
     // Calculate new rage
     const newRage = UTILS.clampRage(Game.state.rageLevel + selectedChoice.rage);
     const newMaxRage = Math.max(Game.state.maxRageReached, newRage);
@@ -169,11 +186,17 @@ const Game = {
     Game.state.lastResponse = selectedChoice.response;
     Game.state.showDuckResponse = true;
 
-    // Switch background music based on new rage level
+    // Switch background music based on new rage level and track for achievements
+    const oldMusicTrack = Game.state.currentMusicTrack;
     Game.state.currentMusicTrack = UTILS.switchBackgroundMusic(
       newRage,
       Game.state.currentMusicTrack
     );
+
+    // Track music for achievements if it changed
+    if (oldMusicTrack !== Game.state.currentMusicTrack) {
+      AchievementManager.trackMusicHeard(Game.state.currentMusicTrack);
+    }
 
     // Add to history
     const historyEntry = {
@@ -209,6 +232,13 @@ const Game = {
     // Check for immediate death (rage 12)
     if (newRage >= CONFIG.DEATH_RAGE) {
       setTimeout(() => {
+        const endingType = UTILS.getEndingType(
+          Game.state.rageLevel,
+          Game.state.maxRageReached
+        );
+        AchievementManager.trackEnding(endingType);
+        AchievementDrawer.updateIfOpen();
+
         if (typeof EndingScreen !== "undefined" && EndingScreen.init) {
           EndingScreen.init(Game.state);
         } else {
@@ -223,6 +253,13 @@ const Game = {
       if (Game.state.currentRound + 1 >= CONFIG.TOTAL_ROUNDS) {
         // Increment currentRound to reflect completion of final round
         Game.state.currentRound++;
+        const endingType = UTILS.getEndingType(
+          Game.state.rageLevel,
+          Game.state.maxRageReached
+        );
+        AchievementManager.trackEnding(endingType);
+        AchievementDrawer.updateIfOpen();
+
         if (typeof EndingScreen !== "undefined" && EndingScreen.init) {
           EndingScreen.init(Game.state);
         } else {

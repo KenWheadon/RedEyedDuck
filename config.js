@@ -20,7 +20,6 @@ const CONFIG = {
   IMAGES: {
     DUCK_PREFIX: "images/duck-rage-",
     DUCK_EXTENSION: ".png",
-    BACKGROUND: "images/airplane-cabin.jpg",
   },
 
   AUDIO: {
@@ -52,6 +51,79 @@ const CONFIG = {
     SUSPICIOUS_WIN: "suspicious-win",
     NEUTRAL: "neutral",
   },
+
+  // Achievement system
+  ACHIEVEMENTS: {
+    FIRST_GAME: {
+      id: "first-game",
+      name: "First Flight",
+      description: "Started your first conversation with the duck",
+      icon: "✈️",
+    },
+    ENDING_SUPER_DEAD: {
+      id: "ending-super-dead",
+      name: "Reality Breaker",
+      description: "Witnessed the duck's true form",
+      icon: "💀",
+    },
+    ENDING_HOW_UNLUCKY: {
+      id: "ending-how-unlucky",
+      name: "Marked for Death",
+      description: "Survived the flight but doomed tomorrow",
+      icon: "🪦",
+    },
+    ENDING_RED_EYE_REDEMPTION: {
+      id: "ending-red-eye-redemption",
+      name: "Razor's Edge",
+      description: "Walked the line and earned the duck's respect",
+      icon: "⚔️",
+    },
+    ENDING_SUSPICIOUS_WIN: {
+      id: "ending-suspicious-win",
+      name: "Too Perfect",
+      description: "Played it too safe - the duck is disappointed",
+      icon: "😑",
+    },
+    ENDING_NEUTRAL: {
+      id: "ending-neutral",
+      name: "Safe Landing",
+      description: "Survived with manageable tension",
+      icon: "🛬",
+    },
+    DIE_THREE_TIMES: {
+      id: "die-three-times",
+      name: "Persistent Fool",
+      description: "Died 3 times but keep coming back",
+      icon: "🔄",
+    },
+    HEAR_ALL_MUSIC: {
+      id: "hear-all-music",
+      name: "Full Soundtrack",
+      description: "Experienced all three emotional states",
+      icon: "🎵",
+    },
+    DIE_TEN_TIMES: {
+      id: "die-ten-times",
+      name: "Glutton for Punishment",
+      description: "Died 10 times - you clearly enjoy pain",
+      icon: "💀💀💀",
+    },
+    SILENT_STREAK: {
+      id: "silent-streak",
+      name: "Silent Treatment",
+      description: "Didn't respond 3 times in a row",
+      icon: "🤐",
+    },
+    SILENT_TOTAL: {
+      id: "silent-total",
+      name: "Master of Silence",
+      description: "Didn't respond 25 times total",
+      icon: "🔇",
+    },
+  },
+
+  // Achievement storage key
+  ACHIEVEMENT_STORAGE_KEY: "red-eye-duck-achievements",
 };
 
 // Utility functions

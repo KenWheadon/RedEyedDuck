@@ -56,15 +56,34 @@ const EndingScreen = {
     container.innerHTML = EndingScreen.render(gameState);
     EndingScreen.attachEventListeners();
 
-    // Play appropriate ending sound
+    // Get the ending type to determine appropriate music
     const endingType = UTILS.getEndingType(
       gameState.rageLevel,
       gameState.maxRageReached
     );
+
+    // Play appropriate ending sound and music
     if (endingType === CONFIG.ENDINGS.SUPER_DEAD) {
       UTILS.playAudio(CONFIG.AUDIO.DEATH_SOUND);
+      // Switch to death music and track it
+      const deathMusic = UTILS.switchBackgroundMusic(CONFIG.DEATH_RAGE);
+      if (typeof AchievementManager !== "undefined") {
+        AchievementManager.trackMusicHeard(deathMusic);
+      }
     } else {
       UTILS.playAudio(CONFIG.AUDIO.LANDING_SOUND);
+      // Keep current music from game state but ensure it's tracked
+      if (
+        gameState.currentMusicTrack &&
+        typeof AchievementManager !== "undefined"
+      ) {
+        AchievementManager.trackMusicHeard(gameState.currentMusicTrack);
+      }
+    }
+
+    // Update achievement drawer if it's open
+    if (typeof AchievementDrawer !== "undefined") {
+      AchievementDrawer.updateIfOpen();
     }
   },
 };

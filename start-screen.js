@@ -40,7 +40,18 @@ const StartScreen = {
     container.innerHTML = StartScreen.render();
     StartScreen.attachEventListeners();
 
-    // Start happy background music
-    UTILS.switchBackgroundMusic(0);
+    // Start happy background music and track it for achievements
+    const currentTrack = UTILS.switchBackgroundMusic(0);
+    if (typeof AchievementManager !== "undefined") {
+      AchievementManager.trackMusicHeard(currentTrack);
+    }
+
+    // Make sure achievement drawer is available
+    if (
+      typeof AchievementDrawer !== "undefined" &&
+      !document.getElementById("achievement-button")
+    ) {
+      AchievementDrawer.init();
+    }
   },
 };
