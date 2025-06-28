@@ -1,0 +1,368 @@
+/* Red Eye Duck Game Styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Courier New", monospace;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  background-image: url("images/airplane-cabin.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #e0e0e0;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(26, 26, 46, 0.8) 0%,
+    rgba(22, 33, 62, 0.8) 50%,
+    rgba(15, 52, 96, 0.8) 100%
+  );
+  z-index: -1;
+}
+
+#game-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Start Screen Styles */
+.start-screen,
+.ending-screen {
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+}
+
+.start-content,
+.ending-content {
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  padding: 40px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.game-title,
+.ending-title {
+  font-size: 3em;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  letter-spacing: 3px;
+  color: #ff6b6b;
+}
+
+.game-description {
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  opacity: 0.9;
+  white-space: pre-line;
+}
+
+.duck-display {
+  margin: 30px 0;
+}
+
+.duck-image {
+  max-width: 200px;
+  height: auto;
+  filter: drop-shadow(0 0 10px rgba(255, 107, 107, 0.3));
+  transition: all 0.3s ease;
+}
+
+.final-duck-image {
+  max-width: 250px;
+  animation: finalDuckPulse 2s infinite;
+}
+
+@keyframes finalDuckPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 10px rgba(255, 107, 107, 0.3));
+  }
+  50% {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 20px rgba(255, 107, 107, 0.6));
+  }
+}
+
+/* Button Styles */
+.start-button,
+.restart-button {
+  background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.3em;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.start-button:hover,
+.restart-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(255, 107, 107, 0.3);
+  background: linear-gradient(45deg, #ee5a24, #ff6b6b);
+}
+
+/* Game UI Styles */
+.flight-ui {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 800px;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  font-size: 1.1em;
+  color: #ffa726;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 167, 38, 0.3);
+}
+
+.timer {
+  font-weight: bold;
+  font-size: 1.2em;
+  transition: color 0.3s ease;
+}
+
+.timer.warning {
+  color: #ff5722;
+  animation: timerPulse 1s infinite;
+}
+
+@keyframes timerPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.duck-section {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.duck-section .duck-image {
+  max-width: 300px;
+  transition: all 0.5s ease;
+}
+
+/* Dialogue Styles */
+.dialogue-section {
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  padding: 25px;
+  margin-top: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.duck-dialogue {
+  font-size: 1.3em;
+  margin-bottom: 25px;
+  line-height: 1.4;
+  color: #e0e0e0;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border-left: 4px solid #ff6b6b;
+}
+
+.duck-response {
+  font-size: 1.3em;
+  color: #ffab91;
+  text-align: center;
+  animation: fadeIn 0.5s ease-in;
+  padding: 20px;
+  background: rgba(255, 171, 145, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 171, 145, 0.2);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Choice Buttons */
+.choices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.choice-button {
+  background: linear-gradient(45deg, #2c3e50, #34495e);
+  color: #ecf0f1;
+  border: 2px solid #3498db;
+  padding: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1em;
+  transition: all 0.3s ease;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.choice-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.choice-button:hover::before {
+  left: 100%;
+}
+
+.choice-button:hover {
+  background: linear-gradient(45deg, #34495e, #2c3e50);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+  border-color: #5dade2;
+}
+
+.choice-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.silent-choice {
+  border-color: #95a5a6;
+  font-style: italic;
+  opacity: 0.8;
+  background: linear-gradient(45deg, #34495e, #2c3e50);
+}
+
+.silent-choice:hover {
+  border-color: #bdc3c7;
+  background: linear-gradient(45deg, #2c3e50, #34495e);
+}
+
+/* Ending Screen Styles */
+.ending-message {
+  font-size: 1.4em;
+  line-height: 1.6;
+  margin: 30px 0;
+  opacity: 0.9;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.final-stats {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.final-stats p {
+  margin: 10px 0;
+  font-size: 1.1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .game-title,
+  .ending-title {
+    font-size: 2em;
+  }
+
+  .flight-ui {
+    padding: 20px;
+    margin: 10px;
+  }
+
+  .choices {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .duck-image {
+    max-width: 150px;
+  }
+
+  .duck-section .duck-image {
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .game-title,
+  .ending-title {
+    font-size: 1.5em;
+  }
+
+  .duck-dialogue,
+  .duck-response {
+    font-size: 1.1em;
+  }
+
+  .choice-button {
+    font-size: 0.9em;
+    min-height: 50px;
+  }
+}
