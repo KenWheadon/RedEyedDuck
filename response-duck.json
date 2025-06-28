@@ -1,0 +1,282 @@
+[
+  {
+    "id": 1,
+    "duck": "Hello. I\u2019m not used to flying economy.",
+    "choices": [
+      {
+        "text": "Same. These seats are brutal.",
+        "response": "Ugh, I knew you\u2019d get it.",
+        "rage": 0
+      },
+      {
+        "text": "Then why are you here?",
+        "response": "Circumstances... changed.",
+        "rage": 1
+      },
+      {
+        "text": "I like it. Feels democratic.",
+        "response": "Hmm.",
+        "rage": 2
+      },
+      {
+        "text": "(Say nothing)",
+        "response": "Duck stares longer than necessary.",
+        "rage": 1
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "duck": "I brought my own neck pillow. It\u2019s made from forbidden moss.",
+    "choices": [
+      {
+        "text": "That sounds hygienic.",
+        "response": "It breathes.",
+        "rage": 2
+      },
+      {
+        "text": "Cool! Can I touch it?",
+        "response": "...Don\u2019t.",
+        "rage": 3
+      },
+      {
+        "text": "Mine\u2019s full of beans.",
+        "response": "Mmm. Ordinary.",
+        "rage": 0
+      },
+      {
+        "text": "(Say nothing)",
+        "response": "Duck adjusts pillow with a squelch.",
+        "rage": 1
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "duck": "I hate turbulence. It triggers... memories.",
+    "choices": [
+      {
+        "text": "Of what?",
+        "response": "My fall.",
+        "rage": 1
+      },
+      {
+        "text": "You\u2019ll be fine. Statistically speaking.",
+        "response": "I transcend statistics.",
+        "rage": 2
+      },
+      {
+        "text": "Want to hold my hand?",
+        "response": "Not unless it\u2019s trembling.",
+        "rage": 0
+      },
+      {
+        "text": "(Say nothing)",
+        "response": "Duck blinks out of sync.",
+        "rage": 1
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "duck": "I requested a vegetarian meal. They gave me shrimp.",
+    "choices": [
+      {
+        "text": "Classic airline move.",
+        "response": "Is it?",
+        "rage": 1
+      },
+      {
+        "text": "Shrimp are basically vegetables.",
+        "response": "You disgust me.",
+        "rage": 3
+      },
+      {
+        "text": "I'll trade you my pretzels.",
+        "response": "That\u2019s... oddly kind.",
+        "rage": -1
+      },
+      {
+        "text": "(Say nothing)",
+        "response": "Duck slowly eats one shrimp without breaking eye contact.",
+        "rage": 2
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "duck": "Do you believe in omens? I saw a red light in the toilet.",
+    "choices": [
+      {
+        "text": "That\u2019s just the flush sensor.",
+        "response": "So naive.",
+        "rage": 1
+      },
+      {
+        "text": "Absolutely. Bad things come in red.",
+        "response": "Yes. Yes they do.",
+        "rage": 0
+      },
+      {
+        "text": "...Was the light blinking?",
+        "response": "Constant. Like it knew.",
+        "rage": 1
+      },
+      {
+        "text": "(Say nothing)",
+        "response": "Duck\u2019s eye twitches slightly.",
+        "rage": 2
+      }
+    ]
+  },
+    {
+        "id": 6,
+        "duck": "They confiscated my toothpaste. Said it was 'too volatile.'",
+        "choices": [
+            {"text": "What was in it?", "response": "Clove. Mercury. Regret.", "rage": 1},
+            {"text": "Probably for the best.", "response": "My molars weep.", "rage": 2},
+            {"text": "I eat toothpaste too.", "response": "...Unsettling.", "rage": 3},
+            {"text": "(Say nothing)", "response": "Duck bares a molar.", "rage": 1}
+        ]
+    },
+    {
+        "id": 7,
+        "duck": "The man behind us keeps sighing in Morse code.",
+        "choices": [
+            {"text": "What's he saying?", "response": "'Stop the duck.'", "rage": 2},
+            {"text": "Ignore him.", "response": "Easier said than done.", "rage": 0},
+            {"text": "Want me to fight him?", "response": "No. Not yet.", "rage": 1},
+            {"text": "(Say nothing)", "response": "Duck taps your seat in reply.", "rage": 1}
+        ]
+    },
+    {
+        "id": 8,
+        "duck": "I never sleep on planes. Too much… listening.",
+        "choices": [
+            {"text": "To what?", "response": "The thoughts of landing gear.", "rage": 1},
+            {"text": "You're paranoid.", "response": "You're unarmed.", "rage": 3},
+            {"text": "Same. I just stare into the dark.", "response": "A shared silence. Nice.", "rage": 0},
+            {"text": "(Say nothing)", "response": "Duck nods, wide-eyed.", "rage": 1}
+        ]
+    },
+    {
+        "id": 9,
+        "duck": "Would you mind if I molt a little?",
+        "choices": [
+            {"text": "Not at all.", "response": "A rare kindness.", "rage": 0},
+            {"text": "Please no.", "response": "Too late.", "rage": 2},
+            {"text": "Depends. How much is 'a little'?", "response": "Medium clumpage.", "rage": 1},
+            {"text": "(Say nothing)", "response": "Feathers begin drifting onto your armrest.", "rage": 1}
+        ]
+    },
+    {
+        "id": 10,
+        "duck": "Have you ever seen a cloud blink?",
+        "choices": [
+            {"text": "No… should I?", "response": "They do. When watched hard enough.", "rage": 0},
+            {"text": "Clouds don’t have eyes.", "response": "That’s what they want you to think.", "rage": 2},
+            {"text": "Yes. Once. It winked.", "response": "You saw Him too.", "rage": -1},
+            {"text": "(Say nothing)", "response": "Duck watches the window intently.", "rage": 1}
+        ]
+    },
+    {
+        "id": 11,
+        "duck": "I think the flight attendant is a mimic.",
+        "choices": [
+            {"text": "A what now?", "response": "She blinked sideways.", "rage": 1},
+            {"text": "Let's test her.", "response": "No. She’d know.", "rage": 2},
+            {"text": "That’s racist. Against mimics.", "response": "Oh. Fair point.", "rage": 0},
+            {"text": "(Say nothing)", "response": "Duck adjusts tray table defensively.", "rage": 1}
+        ]
+    },
+    {
+        "id": 12,
+        "duck": "If this plane goes down, I want you to eat me first.",
+        "choices": [
+            {"text": "...Thanks?", "response": "Don’t waste the legs.", "rage": 0},
+            {"text": "Why me?", "response": "Because you chew slow.", "rage": 1},
+            {"text": "I'm vegetarian.", "response": "Then starve bravely.", "rage": 2},
+            {"text": "(Say nothing)", "response": "Duck sighs solemnly.", "rage": 1}
+        ]
+    },
+    {
+        "id": 13,
+        "duck": "I learned to knit in a bunker.",
+        "choices": [
+            {"text": "Nice! What do you make?", "response": "Threat garments.", "rage": 0},
+            {"text": "How long were you down there?", "response": "Twelve presidents.", "rage": 1},
+            {"text": "That explains the hat.", "response": "You’re observant. Dangerous.", "rage": 1},
+            {"text": "(Say nothing)", "response": "Duck fiddles with string that wasn’t there before.", "rage": 1}
+        ]
+    },
+    {
+        "id": 14,
+        "duck": "You smell like someone I used to know.",
+        "choices": [
+            {"text": "Good or bad?", "response": "Burnt hope. Neutral.", "rage": 1},
+            {"text": "You're creeping me out.", "response": "Wait until I whisper.", "rage": 3},
+            {"text": "I get that a lot.", "response": "Must be a pattern.", "rage": 0},
+            {"text": "(Say nothing)", "response": "Duck leans an inch closer.", "rage": 2}
+        ]
+    },
+    {
+        "id": 15,
+        "duck": "Sometimes I forget if I’m the duck... or the disguise.",
+        "choices": [
+            {"text": "You're definitely a duck.", "response": "Bold claim.", "rage": 1},
+            {"text": "What would a disguise say?", "response": "...Touché.", "rage": 0},
+            {"text": "You're not fooling me, demon.", "response": "We’ll see.", "rage": 3},
+            {"text": "(Say nothing)", "response": "Duck’s reflection doesn’t match its movements.", "rage": 2}
+        ]
+    },
+    {
+        "id": 16,
+        "duck": "I brought a souvenir for when we land. A vial of wind.",
+        "choices": [
+            {"text": "What does it smell like?", "response": "Abandoned swing sets.", "rage": 0},
+            {"text": "That’s illegal.", "response": "So is smiling.", "rage": 1},
+            {"text": "Why?", "response": "In case I forget the sky.", "rage": 1},
+            {"text": "(Say nothing)", "response": "Duck rolls the vial in its palm.", "rage": 1}
+        ]
+    },
+    {
+        "id": 17,
+        "duck": "I once fought a goose. Bare-beaked.",
+        "choices": [
+            {"text": "Who won?", "response": "We both lost something.", "rage": 1},
+            {"text": "Respect.", "response": "Finally.", "rage": 0},
+            {"text": "You're making this up.", "response": "Am I bleeding fiction?", "rage": 2},
+            {"text": "(Say nothing)", "response": "Duck flexes one wing.", "rage": 1}
+        ]
+    },
+    {
+        "id": 18,
+        "duck": "Do you want to know your fortune? I read webbed lines.",
+        "choices": [
+            {"text": "Yes. Tell me.", "response": "Oh. You’ll scream soon.", "rage": 0},
+            {"text": "Rather not.", "response": "Weaklings never do.", "rage": 2},
+            {"text": "Only if it’s good.", "response": "Oh it’s... vivid.", "rage": 1},
+            {"text": "(Say nothing)", "response": "Duck reads your silence.", "rage": 1}
+        ]
+    },
+    {
+        "id": 19,
+        "duck": "I think I used to be taller.",
+        "choices": [
+            {"text": "Gravity is cruel.", "response": "So is time.", "rage": 0},
+            {"text": "Are you shrinking?", "response": "Or condensing.", "rage": 1},
+            {"text": "Maybe you're just melting.", "response": "Rude.", "rage": 2},
+            {"text": "(Say nothing)", "response": "Duck adjusts posture indignantly.", "rage": 1}
+        ]
+    },
+    {
+        "id": 20,
+        "duck": "I think we’re landing soon. Unless we’re not.",
+        "choices": [
+            {"text": "What does that mean?", "response": "Reality has a layover.", "rage": 1},
+            {"text": "I'm ready to get off.", "response": "Then you haven’t changed.", "rage": 2},
+            {"text": "Finally.", "response": "...Agreed.", "rage": 0},
+            {"text": "(Say nothing)", "response": "Duck tilts its head... far too far.", "rage": 1}
+        ]
+    }
+]

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Red Eye Duck - Horror Flight Game</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="game-container">
+      <!-- Game content will be dynamically loaded here -->
+    </div>
+
+    <!-- Audio elements -->
+    <audio id="background-music" loop>
+      <source src="audio/background-ambient.mp3" type="audio/mpeg" />
+      <source src="audio/background-ambient.ogg" type="audio/ogg" />
+    </audio>
+
+    <audio id="choice-sound">
+      <source src="audio/choice-click.mp3" type="audio/mpeg" />
+      <source src="audio/choice-click.ogg" type="audio/ogg" />
+    </audio>
+
+    <audio id="duck-response-sound">
+      <source src="audio/duck-response.mp3" type="audio/mpeg" />
+      <source src="audio/duck-response.ogg" type="audio/ogg" />
+    </audio>
+
+    <audio id="timer-tick">
+      <source src="audio/timer-tick.mp3" type="audio/mpeg" />
+      <source src="audio/timer-tick.ogg" type="audio/ogg" />
+    </audio>
+
+    <audio id="rage-increase">
+      <source src="audio/rage-increase.mp3" type="audio/mpeg" />
+      <source src="audio/rage-increase.ogg" type="audio/ogg" />
+    </audio>
+
+    <audio id="death-sound">
+      <source src="audio/death-scream.mp3" type="audio/mpeg" />
+      <source src="audio/death-scream.ogg" type="audio/ogg" />
+    </audio>
+
+    <audio id="landing-sound">
+      <source src="audio/plane-landing.mp3" type="audio/mpeg" />
+      <source src="audio/plane-landing.ogg" type="audio/ogg" />
+    </audio>
+
+    <!-- Scripts -->
+    <script src="config.js"></script>
+    <script src="messages.js"></script>
+    <script src="start-screen.js"></script>
+    <script src="ending-screen.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
