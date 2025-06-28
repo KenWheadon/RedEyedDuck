@@ -221,6 +221,8 @@ const Game = {
     // Continue to next round or end game
     setTimeout(() => {
       if (Game.state.currentRound + 1 >= CONFIG.TOTAL_ROUNDS) {
+        // Increment currentRound to reflect completion of final round
+        Game.state.currentRound++;
         if (typeof EndingScreen !== "undefined" && EndingScreen.init) {
           EndingScreen.init(Game.state);
         } else {
